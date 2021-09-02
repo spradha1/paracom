@@ -23,7 +23,7 @@ html, body {
   z-index: 1;
 }
 
-#stat {
+#GameTitle, #stat {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -40,7 +40,7 @@ html, body {
 .brick {
   position: absolute;
   width: 100px;
-  height: 25px;
+  height: 20px;
   border-radius: 3px;
   background-color: yellow;
 }
