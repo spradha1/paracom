@@ -1,20 +1,62 @@
 html, body {
   margin: 0;
+  background-color: ghostwhite;
 }
 
 .mainContainer {
+  position: relative;
   display: flex;
   min-height: 100vh;
   width: 100%;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .grid {
-  width: 800px;
+  position: relative;
+  width: 780px;
   height: 500px;
-  background-color: white;
-  border-radius: 15px;
+  background-color: rgba(0, 0, 42, 1);
+  border-radius: 5px;
   box-shadow: 0 2px 5px grey;
+  z-index: 1;
+}
+
+#stat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 3rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  font-family: Roboto, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+  color: rgb(170, 145, 0);
+}
+
+.brick {
+  position: absolute;
+  width: 100px;
+  height: 25px;
+  border-radius: 3px;
+  background-color: yellow;
+}
+
+.paddle {
+  position: absolute;
+  width: 100px;
+  height: 10px;
+  border-radius: 3px;
+  background-color: ghostwhite;
+}
+
+.ball {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: rgb(255, 55, 55);
 }
