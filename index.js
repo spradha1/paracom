@@ -55,12 +55,16 @@ function movePaddle (e) {
       if ( paddlePosition[0] > 0) {
         paddlePosition[0] -= 10;
         drawPaddle();
+      } else {
+        paddlePosition[0] = 0;
       }
       break;
     case 'ArrowRight':
       if ( paddlePosition[0] < gridW - paddleW) {
         paddlePosition[0] += 10;
         drawPaddle();
+      } else {
+        paddlePosition[0] = gridW - paddleW;
       }
       break;
   }
@@ -128,11 +132,11 @@ function checkCollision () {
 
   // paddle
   if (ballPosition[1] + ballD == paddlePosition[1]
-    && ballPosition[0] + ballD >= paddlePosition[0]
-    && ballPosition[0] <= paddlePosition[0] + paddleW
+    && ballPosition[0] + ballD >= paddlePosition[0] - 20
+    && ballPosition[0] <= paddlePosition[0] + paddleW + 20
   ) {
     bounced[1] = true;
-    if (ballPosition[0] + ballD == paddlePosition[0] || ballPosition[0] == paddlePosition[0] + paddleW) {
+    if (ballPosition[0] + ballD <= paddlePosition[0] + 5 || ballPosition[0] >= paddlePosition[0] + paddleW - 5) {
       bounced[0] = true;
     }
   }
@@ -160,7 +164,40 @@ function stopGame (val) {
 }
 
 
-/* ***************************************** */
+/* ********** drag functionality ****************   */
+
+
+function dragElement(elmnt) {
+  var eLeft = 0;
+  const parentLeft = elmnt.parentElement.offsetLeft;
+  elmnt.onmousedown = dragMouseDown;
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    eLeft = e.clientX - elmnt.getBoundingClientRect().left;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    let actualLeft = e.clientX - eLeft - parentLeft;
+    actualLeft = actualLeft >= 0 ? actualLeft : 0;
+    actualLeft = actualLeft <= gridW - paddleW ? actualLeft : gridW - paddleW;
+    paddlePosition[0] = actualLeft;
+    elmnt.style.left = actualLeft + "px";
+  }
+
+  function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+
+/* ********************************************* */
 
 
 // bricks
@@ -190,3 +227,6 @@ ballTimer = setInterval(moveBall, 30);
 
 // restart
 restartButton.addEventListener('click', () => location.reload());
+
+// make paddle draggable
+dragElement(paddle);

@@ -8,7 +8,7 @@
 
 ## Gameplay
 
-  The bricks are randomized every game. There can be maximum of 35 bricks. You know the rest!
+  The bricks are randomized every game according to the size of the viewport. You can either drag the paddle or use arrow keys to control the paddle. Destroy all the bricks to win!
 
 ## Tech stack
 

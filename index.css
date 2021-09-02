@@ -64,6 +64,10 @@ html, body {
   height: 10px;
   border-radius: 3px;
   background-color: ghostwhite;
+  z-index: 10;
+}
+.paddle:hover {
+  cursor: pointer;
 }
 
 .ball {
