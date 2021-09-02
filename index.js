@@ -18,7 +18,10 @@ let ballMove = [5, 5];
 let ballTimer;
 
 const stat = document.querySelector('#stat');
+const restartButton = document.querySelector('#restart');
 
+
+/* ***************************************** */
 
 // brick class
 class Brick {
@@ -157,11 +160,16 @@ function stopGame (val) {
 }
 
 
+/* ***************************************** */
+
+
 // bricks
 var allBricks = []
 for (let i = 0; i < 7; i++) {
-  for (let j = 0; j < 2; j++) {
-    allBricks.push( new Brick(i*(brickW + gap), j*(brickH + gap) ));
+  for (let j = 0; j < 5; j++) {
+    if (Math.floor(Math.random()*2) == 1) {
+      allBricks.push( new Brick(i*(brickW + gap), j*(brickH + gap) ));
+    }
   }
 }
 allBricks.forEach(drawBrick);
@@ -179,3 +187,6 @@ ball.classList.add('ball');
 drawBall();
 grid.appendChild(ball);
 ballTimer = setInterval(moveBall, 30);
+
+// restart
+restartButton.addEventListener('click', () => location.reload());
