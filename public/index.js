@@ -3,6 +3,8 @@ const grid = document.querySelector('.grid');
 const gridW = grid.offsetWidth;
 const gridH = grid.offsetHeight;
 
+const cols = 5;
+const rows = 7;
 const brickW = 100;
 const brickH = 20;
 const gap = 10;
@@ -22,6 +24,7 @@ const restartButton = document.querySelector('#restart');
 
 
 /* ***************************************** */
+
 
 // brick class
 class Brick {
@@ -202,8 +205,8 @@ function dragElement(elmnt) {
 
 // bricks
 var allBricks = []
-for (let i = 0; i < 7; i++) {
-  for (let j = 0; j < 5; j++) {
+for (let i = 0; i < rows; i++) {
+  for (let j = 0; j < cols; j++) {
     if (Math.floor(Math.random()*2) == 1) {
       allBricks.push( new Brick(i*(brickW + gap), j*(brickH + gap) ));
     }

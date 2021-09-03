@@ -1,0 +1,22 @@
+{
+  "name": "paracom",
+  "version": "1.0.0",
+  "description": "This is just an attempt to replicate a simple game I remember playing in a Windows computer in the '90s. I still can't remember the exact name of it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spradha1/paracom.git"
+  },
+  "author": "Sanjiv Pradhanang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spradha1/paracom/issues"
+  },
+  "homepage": "https://github.com/spradha1/paracom#readme",
+  "dependencies": {
+    "firebase": "^9.0.1"
+  }
+}
